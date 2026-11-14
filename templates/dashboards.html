@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Dashboards · AInsight{% endblock %}
+{% block heading %}Dashboards{% endblock %}
+{% block content %}
+<div class="page-head"><h2>Your dashboards</h2>
+  <p>Dashboards store only their layout. Numbers and charts are calculated from your data each time you open one.</p></div>
+<div class="card card-pad history-filters">
+  <select class="select" id="d-dataset" aria-label="Dataset"></select>
+  <button class="btn btn-primary" id="d-create">Create dashboard</button>
+</div>
+<div class="card" id="dash-list"></div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboards.js') }}"></script>{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "auth_base.html" %}
+{% block title %}Sign in{% endblock %}
+{% block card %}
+<h1>Welcome back</h1>
+<p class="lede">Sign in to ask questions about your business data.</p>
+<form class="auth-form" id="login-form" data-auth-form="login" novalidate>
+  <div class="auth-msg error" role="alert" data-msg hidden></div>
+  <div>
+    <label for="email">Email</label>
+    <input class="input" id="email" name="email" type="email" autocomplete="email" required autofocus>
+  </div>
+  <div>
+    <div class="auth-row"><label for="password">Password</label><a class="small" href="/forgot-password">Forgot password?</a></div>
+    <input class="input" id="password" name="password" type="password" autocomplete="current-password" required>
+  </div>
+  <button class="btn btn-primary" type="submit">Sign in</button>
+</form>
+<p class="auth-alt" data-register-link>New to AInsight? <a href="/register">Create an account</a></p>
+{% endblock %}

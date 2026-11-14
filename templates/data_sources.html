@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Data Sources · AInsight{% endblock %}
+{% block heading %}Data Sources{% endblock %}
+{% block topbar %}<button class="btn btn-primary btn-sm" id="add-source" type="button">Add data source</button>{% endblock %}
+
+{% block content %}
+<div class="page-head">
+  <h2>Connect your business data</h2>
+  <p>Link a database or API once. AInsight reads it live with read-only queries, and passwords or keys are stored encrypted and never shown again.</p>
+</div>
+<div class="src-grid" id="src-grid" aria-live="polite"></div>
+<div id="wizard-root"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/sources.js') }}"></script>
+{% endblock %}

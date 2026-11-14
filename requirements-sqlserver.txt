@@ -1,0 +1,2 @@
+# Optional: SQL Server connector (alternatively install pyodbc + the Microsoft ODBC driver)
+pymssql>=2.3.0

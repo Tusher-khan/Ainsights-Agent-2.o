@@ -1,0 +1,24 @@
+/* Sign-in, register and password pages. Uses the shared design tokens. */
+.auth-page { min-height: 100vh; display: grid; place-items: center; padding: var(--sp-5) var(--sp-4); background: var(--canvas); }
+.auth-wrap { width: 100%; max-width: 420px; }
+.auth-brand { display: flex; justify-content: center; margin-bottom: var(--sp-5); }
+.auth-card { padding: var(--sp-6); }
+.auth-card h1 { font-size: var(--step-2); font-weight: 650; margin-bottom: var(--sp-2); letter-spacing: -0.01em; }
+.auth-card .lede { color: var(--ink-3); margin-bottom: var(--sp-5); font-size: var(--step-0); }
+.auth-form { display: grid; gap: var(--sp-4); }
+.auth-form .btn-primary { width: 100%; padding: 0.65rem 0.9rem; }
+.auth-hint { font-size: var(--step--1); color: var(--ink-3); margin-top: var(--sp-2); }
+.auth-alt { margin-top: var(--sp-5); text-align: center; font-size: var(--step--1); color: var(--ink-3); }
+.auth-alt a { font-weight: 600; }
+.auth-msg { padding: 0.65rem 0.8rem; border-radius: var(--r-md); font-size: var(--step--1); border: 1px solid transparent; }
+.auth-msg[hidden] { display: none; }
+.auth-msg.error { background: var(--danger-soft); color: var(--danger); border-color: var(--danger); }
+.auth-msg.ok { background: var(--verified-soft); color: var(--verified); border-color: var(--verified); }
+.auth-row { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3); }
+.auth-row label { margin: 0; }
+.link-btn { background: none; border: none; padding: 0; font: inherit; color: var(--accent); cursor: pointer; font-weight: 600; }
+.profile-grid { display: grid; gap: var(--sp-5); max-width: 640px; }
+.profile-card .auth-form { max-width: 420px; }
+.profile-card .auth-form .btn-primary { width: auto; }
+.user-chip { display: inline-flex; align-items: center; gap: var(--sp-2); font-size: var(--step--1); color: var(--ink-2); }
+.user-chip a { color: inherit; font-weight: 600; }

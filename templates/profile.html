@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Account · AInsight{% endblock %}
+{% block heading %}Account{% endblock %}
+{% block content %}
+<div class="profile-grid">
+  <section class="card card-pad profile-card" aria-labelledby="profile-h">
+    <h3 id="profile-h" style="margin-bottom:var(--sp-4)">Profile</h3>
+    <form class="auth-form" data-auth-form="profile" novalidate>
+      <div class="auth-msg error" role="alert" data-msg hidden></div>
+      <div class="auth-msg ok" role="status" data-ok hidden></div>
+      <div><label for="p-email">Email</label><input class="input" id="p-email" type="email" value="{{ current_user.email if current_user else '' }}" disabled></div>
+      <div><label for="p-name">Name</label><input class="input" id="p-name" name="name" type="text" maxlength="80" value="{{ current_user.name if current_user else '' }}"></div>
+      <div><button class="btn btn-primary" type="submit">Save</button></div>
+    </form>
+    {% if current_user and not current_user.email_verified %}
+    <p class="auth-hint" style="margin-top:var(--sp-4)">Your email address is not verified yet. <button class="link-btn" type="button" data-resend-verification>Send a verification link</button></p>
+    {% endif %}
+  </section>
+
+  <section class="card card-pad profile-card" aria-labelledby="pw-h">
+    <h3 id="pw-h" style="margin-bottom:var(--sp-4)">Change password</h3>
+    <form class="auth-form" data-auth-form="change-password" novalidate>
+      <div class="auth-msg error" role="alert" data-msg hidden></div>
+      <div class="auth-msg ok" role="status" data-ok hidden></div>
+      <div><label for="cp-current">Current password</label><input class="input" id="cp-current" name="current_password" type="password" autocomplete="current-password" required></div>
+      <div><label for="cp-new">New password</label><input class="input" id="cp-new" name="new_password" type="password" autocomplete="new-password" required minlength="10"></div>
+      <div><button class="btn btn-primary" type="submit">Change password</button></div>
+      <p class="auth-hint">Changing your password signs you out everywhere else.</p>
+    </form>
+  </section>
+
+  <section class="card card-pad profile-card" aria-labelledby="del-h">
+    <h3 id="del-h" style="margin-bottom:var(--sp-2)">Delete account</h3>
+    <p class="muted small" style="margin-bottom:var(--sp-4)">Permanently removes your account, datasets, uploaded files, analyses and history. This cannot be undone.</p>
+    <form class="auth-form" data-auth-form="delete-account" novalidate>
+      <div class="auth-msg error" role="alert" data-msg hidden></div>
+      <div><label for="da-password">Confirm with your password</label><input class="input" id="da-password" name="password" type="password" autocomplete="current-password" required></div>
+      <div><button class="btn btn-danger" type="submit">Delete my account</button></div>
+    </form>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/auth.js') }}"></script>{% endblock %}

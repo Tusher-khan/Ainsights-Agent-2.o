@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AInsight{% endblock %} · AInsight</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232F5AE0'/><path d='M9 22 16 10l7 12' stroke='white' stroke-width='2.4' fill='none' stroke-linejoin='round'/><circle cx='16' cy='10' r='2.6' fill='white'/></svg>">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('ainsight-theme');
+        if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) saved = 'dark';
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+<main class="auth-page" id="main-content">
+  <div class="auth-wrap">
+    <a class="brand auth-brand" href="/">
+      <svg class="brand-mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="var(--accent)"/>
+        <path d="M8.5 22.5 16 9.5l7.5 13" stroke="#fff" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+        <circle cx="16" cy="9.5" r="2.8" fill="#fff"/>
+        <circle cx="8.5" cy="22.5" r="1.9" fill="#fff" opacity=".7"/>
+        <circle cx="23.5" cy="22.5" r="1.9" fill="#fff" opacity=".7"/>
+      </svg>
+      <span class="brand-name">A<b>Insight</b><span class="brand-sub">AI-Powered Business Analytics</span></span>
+    </a>
+    <div class="card auth-card">
+      {% block card %}{% endblock %}
+    </div>
+    {% block below %}{% endblock %}
+  </div>
+</main>
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+</body>
+</html>

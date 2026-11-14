@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AInsight — Turn your business data into decisions</title>
+  <meta name="description" content="AInsight is an AI-powered analytics agent: explore CSV, Excel, database and API data in natural language with validated calculations, interactive charts and actionable insights.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232F5AE0'/><path d='M9 22 16 10l7 12' stroke='white' stroke-width='2.4' fill='none' stroke-linejoin='round'/><circle cx='16' cy='10' r='2.6' fill='white'/></svg>">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('ainsight-theme');
+        if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) saved = 'dark';
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="lp">
+<a class="skip-link" href="#hero">Skip to content</a>
+
+<header class="lp-nav">
+  <div class="lp-wrap">
+    <a class="brand" href="/"><svg class="brand-mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><path d="M8.5 22.5 16 9.5l7.5 13" stroke="#fff" stroke-width="2.2" fill="none" stroke-linejoin="round"/><circle cx="16" cy="9.5" r="2.8" fill="#fff"/><circle cx="8.5" cy="22.5" r="1.9" fill="#fff" opacity=".7"/><circle cx="23.5" cy="22.5" r="1.9" fill="#fff" opacity=".7"/></svg><span class="brand-name">A<b>Insight</b><span class="brand-sub">AI-Powered Business Analytics</span></span></a>
+    <nav class="lp-links" aria-label="Page sections"><a href="#features">Features</a><a href="#how">How it works</a><a href="#examples">Examples</a><a href="#trust">Trust</a></nav>
+    <div class="actions">
+      <button class="btn btn-ghost btn-icon" id="lp-theme" type="button" aria-label="Switch colour theme"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg></button>
+      {% if current_user %}
+      <a class="btn btn-primary" href="/dashboard">Open workspace</a>
+      {% else %}
+      <a class="btn btn-ghost hide-sm" href="/login">Sign in</a>
+      <a class="btn btn-primary" href="/register">Start Analyzing</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="lp-hero" id="hero">
+  <div class="lp-wrap">
+    <div>
+      <span class="eyebrow">Agentic business analytics</span>
+      <h1>Turn Your Business Data Into <em>Decisions</em></h1>
+      <p class="lede">AInsight is an AI-powered analytics agent that lets you explore CSV, Excel, database and API data using natural language — with validated calculations, interactive visualizations and actionable business insights.</p>
+      <div class="lp-cta">
+        {% if current_user %}
+        <a class="btn btn-grad" href="/chat">Start Analyzing</a>
+        {% else %}
+        <a class="btn btn-grad" href="/register">Start Analyzing</a>
+        {% endif %}
+        <a class="btn" href="#how">See How It Works</a>
+      </div>
+      <div class="lp-trust"><span>Numbers from pandas / SQL, not the AI</span><span>Every answer shows its evidence</span><span>Your data stays private</span></div>
+    </div>
+
+    <div class="mock" role="img" aria-label="Illustration of an AInsight conversation with a chart, insight and recommendation">
+      <div class="mock-bar"><i></i><i></i><i></i><b>AInsight · AI Chat</b></div>
+      <div class="mock-body">
+        <div class="bubble user">Which region performed best?</div>
+        <div class="bubble ai">
+          <div class="mock-steps"><span>✓ Understood</span><span>✓ Tool selected</span><span>✓ Calculated</span><span>✓ Validated</span></div>
+          <span class="tag-f">Fact</span><strong>West</strong> generated the highest sales at <strong>$710.22K</strong>.
+          <div class="mock-chart">
+            <svg viewBox="0 0 360 120" aria-hidden="true">
+              <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#2F5AE0"/><stop offset="1" stop-color="#7B6BF0"/></linearGradient></defs>
+              <g font-size="10" fill="currentColor" opacity=".7">
+                <text x="0" y="17">West</text><text x="0" y="45">East</text><text x="0" y="73">Central</text><text x="0" y="101">South</text></g>
+              <rect x="52" y="6" width="290" height="16" rx="4" fill="url(#g1)"/>
+              <rect x="52" y="34" width="240" height="16" rx="4" fill="#2F5AE0" opacity=".55"/>
+              <rect x="52" y="62" width="205" height="16" rx="4" fill="#2F5AE0" opacity=".4"/>
+              <rect x="52" y="90" width="160" height="16" rx="4" fill="#2F5AE0" opacity=".28"/>
+            </svg>
+          </div>
+          <div><span class="tag-i">Interpretation</span>West is the strongest region by total sales in this dataset.</div>
+          <div style="margin-top:6px"><span class="tag-r">Recommendation</span>Look at West's top products and channels before reallocating resources.</div>
+          <div class="pill-row"><span class="pill">Show West's top 5 products</span><span class="pill">Compare West with East</span><span class="pill">Create dashboard</span></div>
+          <div class="mock-note">Illustrative example with sample data.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="lp-alt">
+  <div class="lp-wrap">
+    <span class="eyebrow">What AInsight does</span>
+    <h2>An AI analyst you can actually check</h2>
+    <p class="section-lede">Conversation on the surface, validated analytics underneath.</p>
+    <div class="lp-grid"><article class="lp-card"><div class="glyph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-5.5A8 8 0 1 1 21 12Z"/></svg></div><h3>Ask Your Data</h3><p>Ask questions in natural language instead of writing SQL or manually calculating spreadsheets.</p></article><article class="lp-card"><div class="glyph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><h3>Agentic Analysis</h3><p>AInsight decides which analytical tools and operations are required to answer your question.</p></article><article class="lp-card"><div class="glyph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 7.9-8 9-4.8-1.1-8-4.5-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Trusted Numbers</h3><p>Calculations are performed with analytics engines such as pandas and SQL and validated before they are shown. The AI never does the arithmetic.</p></article><article class="lp-card"><div class="glyph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V9M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Interactive Visualizations</h3><p>Generated charts can be explored, expanded, downloaded and questioned: ask AInsight about the chart you are looking at.</p></article><article class="lp-card"><div class="glyph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.7.5 1 1.2 1 2.1h5c0-.9.3-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></div><h3>Business Insights</h3><p>Go beyond numbers: facts, interpretation and recommendations are kept clearly separate, with suggested next analyses.</p></article><article class="lp-card"><div class="glyph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div><h3>Multiple Data Sources</h3><p>Analyze CSV, Excel, SQLite and REST data sources, with each user's data kept private to their account.</p></article></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="lp-wrap">
+    <span class="eyebrow">How it works</span>
+    <h2>From question to decision in six steps</h2>
+    <p class="section-lede">Every step is real: the agent shows what it ran, and the checks it passed.</p>
+    <div class="steps"><div class="step"><h3>Connect</h3><p>Upload CSV/Excel or connect a supported data source.</p></div><div class="step"><h3>Ask</h3><p>Ask naturally: “Which region generated the highest sales?”</p></div><div class="step"><h3>Analyze</h3><p>The agent picks the analytical operation and runs it.</p></div><div class="step"><h3>Validate</h3><p>Calculations, columns, results and chart data are checked.</p></div><div class="step"><h3>Understand</h3><p>Results are explained in business language.</p></div><div class="step"><h3>Act</h3><p>Get recommendations and keep exploring.</p></div></div>
+  </div>
+</section>
+
+<section id="examples" class="lp-alt">
+  <div class="lp-wrap">
+    <span class="eyebrow">Try asking</span>
+    <h2>Questions business users really ask</h2>
+    <p class="section-lede">Figures below are from an illustrative sales sample; your answers come from your own data.</p>
+    <div class="ex-grid"><div class="ex"><div class="q">What are my total sales?</div><div class="a">Total sales are <b>$2.26M</b> across <b>9,800</b> orders. <span class='pill'>KPI card</span></div></div><div class="ex"><div class="q">Which region has the highest sales?</div><div class="a"><b>West</b> leads at <b>$710.22K</b>. A ranked bar chart shows every region and its share.</div></div><div class="ex"><div class="q">Show monthly sales trends.</div><div class="a">A line chart of monthly totals, with the strongest and weakest months called out.</div></div><div class="ex"><div class="q">Which products are underperforming?</div><div class="a">The bottom products by sales, with their share of the total and a suggested next analysis.</div></div><div class="ex"><div class="q">Compare sales between East and West.</div><div class="a">A side-by-side comparison with the gap and the percentage difference.</div></div><div class="ex"><div class="q">What changed last month?</div><div class="a">Current vs previous period, the biggest movers, and what to investigate next.</div></div></div>
+    <div class="ex-chips" style="margin-top:var(--sp-5)"><span>“What about East?”</span><span>“Only show the top 3.”</span><span>“Do the same for profit.”</span><span>“Create a dashboard from this analysis.”</span></div>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="lp-wrap">
+    <span class="eyebrow">Why you can trust it</span>
+    <h2>Built so the numbers hold up</h2>
+    <p class="section-lede">The language model plans and explains. It is never the calculator.</p>
+    <div class="lp-trustgrid"><div><strong>Numbers from real calculations</strong><span>pandas / SQL computes every figure. The language model only plans and explains.</span></div><div><strong>Evidence on every answer</strong><span>Dataset, columns, operation and passed checks are shown with each result.</span></div><div><strong>Your data stays yours</strong><span>Per-account isolation, read-only database access, no secrets sent to the model.</span></div><div><strong>Honest about limits</strong><span>Unknown values or columns are refused instead of guessed.</span></div></div>
+  </div>
+</section>
+
+<section class="lp-final">
+  <div class="lp-wrap"><div class="box">
+    <h2>Ready to talk to your data?</h2>
+    <p>Create a free account, upload a CSV or Excel file — or try the sample sales data — and ask your first question in under a minute.</p>
+    {% if current_user %}<a class="btn" href="/chat">Open AI Chat</a>{% else %}<a class="btn" href="/register">Start Analyzing</a>{% endif %}
+  </div></div>
+</section>
+</main>
+
+<footer class="lp-foot"><div class="lp-wrap"><span><strong>AInsight</strong> — Ask your data. Get intelligent insights.</span><span>Research prototype · numbers computed with pandas / SQL</span></div></footer>
+
+<script>
+(function () {
+  var b = document.getElementById('lp-theme');
+  if (b) b.addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('ainsight-theme', next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

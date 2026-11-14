@@ -1,0 +1,24 @@
+{% extends "auth_base.html" %}
+{% block title %}Create account{% endblock %}
+{% block card %}
+<h1>Create your account</h1>
+<p class="lede">Your datasets, analyses and history stay private to your account.</p>
+<form class="auth-form" id="register-form" data-auth-form="register" novalidate>
+  <div class="auth-msg error" role="alert" data-msg hidden></div>
+  <div>
+    <label for="name">Your name</label>
+    <input class="input" id="name" name="name" type="text" autocomplete="name" maxlength="80" autofocus>
+  </div>
+  <div>
+    <label for="email">Work email</label>
+    <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input class="input" id="password" name="password" type="password" autocomplete="new-password" required minlength="10">
+    <p class="auth-hint" data-password-hint>Use at least 10 characters. A short phrase works well.</p>
+  </div>
+  <button class="btn btn-primary" type="submit">Create account</button>
+</form>
+<p class="auth-alt">Already have an account? <a href="/login">Sign in</a></p>
+{% endblock %}

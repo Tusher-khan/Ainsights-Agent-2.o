@@ -1,0 +1,10 @@
+{% extends "auth_base.html" %}
+{% block title %}Confirm email{% endblock %}
+{% block card %}
+<h1>Confirming your email</h1>
+<div class="auth-msg error" role="alert" data-msg hidden></div>
+<div class="auth-msg ok" role="status" data-ok hidden></div>
+<p class="lede" data-pending>One moment…</p>
+<div data-auth-form="verify"></div>
+<p class="auth-alt"><a href="/login">Continue to sign in</a></p>
+{% endblock %}

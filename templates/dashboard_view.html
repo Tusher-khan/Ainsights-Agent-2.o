@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · AInsight{% endblock %}
+{% block heading %}Dashboard{% endblock %}
+{% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard_ai.css') }}">{% endblock %}
+{% block content %}
+<div class="dv" id="dv-root">
+  <div class="page-head dv-head">
+    <div class="dv-title"><h2 id="dv-name">Loading…</h2><p id="dv-sub" class="muted"></p></div>
+    <div class="dv-actions" id="dv-actions" role="toolbar" aria-label="Dashboard actions"></div>
+  </div>
+  <div class="card dv-filterbar" id="dv-filters" aria-label="Filters"></div>
+  <div class="dv-chips" id="dv-chips" aria-live="polite"></div>
+  <div class="dv-kpis" id="dv-kpis"></div>
+  <nav class="dv-tabs" id="dv-tabs" role="tablist" aria-label="Dashboard views"></nav>
+  <div class="dv-grid dv-hero-grid" id="dv-hero"></div>
+  <div id="dv-insights"></div>
+  <div class="dv-grid" id="dv-charts"></div>
+  <div id="dv-extra"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>window.DASHBOARD_ID = {{ dashboard_id | tojson }};</script>
+<script src="{{ url_for('static', filename='js/dashboard_ai.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Analysis history · AInsight{% endblock %}
+{% block heading %}Analysis History{% endblock %}
+{% block topbar %}<button class="btn btn-sm btn-danger" id="clear-history">Clear history</button>{% endblock %}
+
+{% block content %}
+<div class="page-head">
+  <h2>Everything you have asked</h2>
+  <p>Open a saved analysis exactly as it was produced (nothing re-runs), or refresh it against your current data.</p>
+</div>
+<div class="card card-pad history-filters">
+  <input class="input" type="search" id="h-search" placeholder="Search questions and answers" aria-label="Search history">
+  <select class="select" id="h-intent" aria-label="Filter by type">
+    <option value="">All types</option>
+    <option value="investigation">Investigation</option>
+    <option value="diagnostic">Diagnostic</option>
+    <option value="root_cause">Root cause</option>
+    <option value="anomaly">Anomaly</option>
+    <option value="correlation">Correlation</option>
+    <option value="distribution">Distribution</option>
+    <option value="data_quality">Data quality</option>
+    <option value="cross_source">Cross-source</option>
+    <option value="simple_aggregation">Simple aggregation</option>
+  </select>
+  <label class="small"><input type="checkbox" id="h-fav"> Favorites only</label>
+</div>
+<div class="card" id="history-list"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/history.js') }}"></script>
+{% endblock %}
